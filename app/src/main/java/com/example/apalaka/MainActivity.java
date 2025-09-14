@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import java.util.Calendar;
 import com.bumptech.glide.Glide;
 import java.util.LinkedList;
 import java.util.HashSet;
@@ -20,7 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     private static final String API_KEY = "e7b60b26d60a3c6bdb8d707cdc3f8b9b";
@@ -44,10 +46,21 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private AlertDialog historyDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ConstraintLayout layout = findViewById(R.id.main_layout);
+
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+        if (hour >= 16 || hour < 6) {
+            layout.setBackgroundResource(R.drawable.weather_bg_night);
+        } else {
+            layout.setBackgroundResource(R.drawable.weather_bg);
+        }
 
         editTextCity = findViewById(R.id.editTextCity);
         buttonGetWeather = findViewById(R.id.buttonGetWeather);
@@ -104,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 showHistoryDialog();
             }
         });
-
-        getCurrentWeatherData("Warsaw");
+        
     }
 
     private void getCurrentWeatherData(String cityName) {

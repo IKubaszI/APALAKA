@@ -9,6 +9,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
+
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +32,15 @@ public class FavoritesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        LinearLayout layout = findViewById(R.id.favoritesContainer);
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
+        if (hour >= 16 || hour < 6) {
+            layout.setBackgroundResource(R.drawable.weather_bg_night);
+        } else {
+            layout.setBackgroundResource(R.drawable.weather_bg);
+        }
         favoritesContainer = findViewById(R.id.favoritesContainer);
         preferences = getSharedPreferences("weather_prefs", MODE_PRIVATE);
 

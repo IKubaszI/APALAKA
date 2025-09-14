@@ -1,0 +1,21 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Tło -->
+    <solid android:color="#FFFFFF" />
+
+    <!-- Obramówka -->
+    <stroke
+        android:width="2dp"
+        android:color="#2196F3" />
+
+    <!-- Zaokrąglenie rogów -->
+    <corners android:radius="12dp" />
+
+    <!-- Wewnętrzny odstęp -->
+    <padding
+        android:left="12dp"
+        android:top="12dp"
+        android:right="12dp"
+        android:bottom="12dp" />
+</shape>
