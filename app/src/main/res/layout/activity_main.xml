@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/weather_bg">
 
     <EditText
         android:id="@+id/editTextCity"
@@ -18,6 +18,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pobierz pogodę"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewFavorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_star_border"
+        android:contentDescription="Dodaj do ulubionych"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ulubione miasta"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historia"
         android:layout_marginBottom="32dp"/>
 
     <TextView
